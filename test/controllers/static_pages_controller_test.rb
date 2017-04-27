@@ -4,7 +4,7 @@ require 'test_helper'
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
 
   def setup
-    @base_title = "Ruby on Rails Turorail Sample App"
+    @base_title = "Ruby on Rails Tutorail Sample App"
   end
   
   test "should get root" do
@@ -15,7 +15,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   test "should get home" do
     get static_pages_home_url
     assert_response :success
-    assert_select "title" , "Home | #{@base_title}"
+    assert_select "title" , "Ruby on Rails Tutorail Sample App"
   end
 
   test "should get help" do
