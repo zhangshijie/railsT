@@ -14,5 +14,11 @@ class ActiveSupport::TestCase
   def is_logged_in?
     !session[:user_id].nil?
   end
+
+
+  #登入指定的用户
+  def log_in_as
+    session[:user_id] = user.id
+  end
   
 end
