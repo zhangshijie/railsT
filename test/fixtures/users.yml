@@ -2,6 +2,7 @@ michael:
   name: Michael Example
   email: michael@exmaple.com
   password_digest: <%= User.digest('password') %>
+  admin: true
 
 archer:
   name: Sterling Archer
@@ -17,7 +18,7 @@ malory:
   name: Malory Archer
   email: boss@exmaple.com
   password_digest: <%= User.digest('password') %>
-  
+
 <% 30.times do |n| %>
 
   name: <%= "User \#{n}" %>
