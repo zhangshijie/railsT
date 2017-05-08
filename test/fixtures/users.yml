@@ -6,4 +6,21 @@ michael:
 archer:
   name: Sterling Archer
   email: duchess@example.gov
-  password_digest: <%= User.digest('password') %
+  password_digest: <%= User.digest('password') %>
+
+lana:
+  name: Lana Kane
+  email: hands@exmaple.com
+  password_digest: <%= User.digest('password') %>
+
+malory:
+  name: Malory Archer
+  email: boss@exmaple.com
+  password_digest: <%= User.digest('password') %>
+  
+<% 30.times do |n| %>
+
+  name: <%= "User \#{n}" %>
+  email: <%= "user-#{n}@example.com" %> 
+  password_digest: <%= User.digest('password') %>
+<% end %>
