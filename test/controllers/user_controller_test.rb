@@ -51,13 +51,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to login_url
   end
   
-  test "should redirect destory when logged in as a non-admin"
+  test "should redirect destory when logged in as a non-admin" do
     log_in_as(@other_user)
     assert_no_difference 'User.count' do
       delete user_path(@user)
     end
     assert_redirected_to root_url
-    
   end
 
   test "index as admin including pagination and delete links" do
