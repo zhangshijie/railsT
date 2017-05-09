@@ -13,6 +13,7 @@ class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
   before_create :create_activation_digest
+  has_many :microposts, dependent: :destroy
 
 
   def remember
@@ -37,9 +38,9 @@ class User < ApplicationRecord
 
   # 如果指定的令牌和摘要匹配，返回 true
   def authenticated?(attribute, token)
-    digeset = send("#{attribute}_digest")
+    digest = send("#{attribute}_digest")
     return false if digest.nil?
-    BCrypt::Password.new(digeset).is_password?(token)
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   def forget 
