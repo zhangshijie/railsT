@@ -17,7 +17,8 @@ class UsersController < ApplicationController
     #返回所有用户
     # @users = User.paginate(page: params[:page])
     #只返回已经激活的用户
-    @users = User.where(:activated: true).paginate(page: params[:page])
+    @users = User.where(activated: true).paginate(page: params[:page])
+    # @users = User.where(activated: FILL_IN).paginate(page: params[:page])
   end
 
   def create
