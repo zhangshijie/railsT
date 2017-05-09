@@ -71,6 +71,10 @@ class User < ApplicationRecord
     UserMailer.password_reset(self).deliver_now
   end
 
+  #当密码重的请求超时，返回true
+  def password_reset_expired
+    reset_sent_at < 2.hour.ago
+  end
   private 
     #把电子邮件地址转换为小写
     def downcase_email
