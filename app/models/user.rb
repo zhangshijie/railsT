@@ -14,7 +14,7 @@ class User < ApplicationRecord
   before_save :downcase_email
   before_create :create_activation_digest
   has_many :microposts, dependent: :destroy
-
+  
 
   def remember
     self.remember_token = User.new_token
@@ -75,6 +75,10 @@ class User < ApplicationRecord
   #当密码重的请求超时，返回true
   def password_reset_expired
     reset_sent_at < 2.hour.ago
+  end
+
+  def feed
+    Micropost.where("user_id = ?",id)
   end
   private 
     #把电子邮件地址转换为小写
